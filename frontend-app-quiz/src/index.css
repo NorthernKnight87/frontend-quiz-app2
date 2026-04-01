@@ -1,2 +1,106 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *)); 
+
+@font-face {
+  font-family: "Rubik";
+  src: url('/assets/fonts/static/Rubik-Medium.ttf') format("truetype");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Rubik";
+  src: url('/assets/fonts/static/Rubik-Italic.ttf') format("truetype");
+  font-display: swap;
+  font-style: italic;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Rubik";
+  src: url('../public/assets/fonts/Rubik-VariableFont_wght.ttf') format("truetype");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 300;
+}
+
+
+:root {
+
+  /* fonts */
+
+  --font-rubik: "Rubik";
+ 
+  /* color palette */
+
+  /* black and white */
+
+  --standard-white: hsl(0, 100%, 100%);
+  --standard-black: hsl(0, 0%, 0%);
+
+  /* greys */
+
+  --grey-500: hsl(219, 13%, 44%);
+  --grey-50: hsl(220, 38%, 97%);
+
+ /* blues */
+
+ --blue-950: hsl(214, 24%, 23%);
+ --blue-900: hsl(216, 25%, 25%);
+ --blue-850: hsl(215, 27%, 32%);
+ --blue-500: hsl(223, 100%, 59%);
+ --blue-300: hsl(216, 47%, 78%);
+ --blue-100: hsl(220, 50%, 95%);
+ --blue-50: hsl(225, 100%, 96%);
+
+ /* greens */
+
+ --green-500: hsl(151, 68%, 52%);
+ --green-100: hsl(151, 88%, 94%);
+
+ /* purples */
+
+ --purple-600: hsl(277, 91%, 56%);
+ --purple-100: hsl(278, 100%, 95%);
+
+ /* oranges */
+
+ --orange-400: hsl(22, 100%, 60%);
+ --orange-50: hsl(27, 100%, 96%);
+
+ /* reds */
+
+ --red-500: hsl(0, 82%, 63%);
+
+
+ /* spacing */ 
+
+ --spacing-100: 0.5rem;
+ --spacing-200: 1rem;
+ --spacing-300: 1.5rem;
+ --spacing-400: 2rem;
+ --spacing-500: 2.5rem;
+ --spacing-600: 3rem;
+ --spacing-800: 4rem;
+ --spacing-1600: 8rem;
+ --spacing-1800: 9rem;
+ --spacing-2300: 11.5rem; 
+
+
+}
+
+@layer base {
+  body {
+    @apply m-0;
+    font-family: "Rubik";
+    background-color: var(--grey-50);
+    background-image: url('../public/assets/images/pattern-background-mobile-light.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+  }
+
+} 
