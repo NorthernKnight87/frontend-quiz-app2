@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const Home = () => {
   return (
     <>
-      <div className="flex flex-col lg:flex lg:flex-row lg:column-gap-[8rem]">
+      <div className="flex flex-col lg:flex lg:flex-row lg:mt-0 lg:pt-[6rem] justify-between items-start w-full">
         <header className="flex flex-col items-start w-full">
           <h1 className="text-[2.5rem] text-[var(--blue-900)] dark:text-[var(--standard-white)] leading-[2.5rem] text-left font-rubik font-light md:text-[4rem] md:leading-[4rem] lg:leading-[4rem]">
             Welcome to the <br />
@@ -16,7 +16,7 @@ const Home = () => {
             Pick a subject to get started
           </p>
         </header>
-        <main className="flex flex-col gap-4 mt-8 w-full">
+        <main className="flex flex-col gap-4 mt-8 lg:mt-0 lg:ml-8 w-full"> 
           <Link to="/htmlquiz" state={{ subject: "HTML" }} className="block w-full">
             <div className="bg-[var(--standard-white)] dark:text-[var(--standard-white)] dark:bg-[var(--blue-850)] py-4 px-4 rounded-lg flex items-center md:rounded-2xl">
               <figure className="bg-[var(--orange-50)] rounded-lg w-[2.5rem] h-[2.5rem] flex items-center justify-center">
@@ -50,7 +50,7 @@ const Home = () => {
                   className="w-[1.786rem]"
                 />
               </figure>
-              <span className="text-[1.125rem] text-[var(--blue-900)] leading-[1.125rem] self-center font-medium ml-4 md:ml-8 cursor-pointer">
+              <span className="text-[1.125rem] text-[var(--blue-900)] leading-[1.125rem] dark:text-[var(--standard-white)] self-center font-medium ml-4 md:ml-8 cursor-pointer">
                 JavaScript
               </span>
             </div>
@@ -64,7 +64,7 @@ const Home = () => {
                   className="w-[1.786rem]"
                 />
               </figure>
-              <span className="text-[1.125rem] leading-[1.125rem] text-[var(--blue-900)] self-center font-medium ml-4 md:ml-8 cursor-pointer">
+              <span className="text-[1.125rem] leading-[1.125rem] text-[var(--blue-900)] dark:text-[var(--standard-white)] self-center font-medium ml-4 md:ml-8 cursor-pointer">
                 Accessibility
               </span>
             </div>

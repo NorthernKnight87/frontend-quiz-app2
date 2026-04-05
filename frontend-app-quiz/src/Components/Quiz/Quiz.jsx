@@ -87,28 +87,35 @@ const Quiz = () => {
   }
 
   return (
-    <div className="min-h-screen w-full relative md:w-full flex flex-col justify-center font-rubik font-medium text-center">
-      <header className="w-full flex flex-row ml-[var(--spacing-300) mt-4 px-[var(--spacing-300)]">
-        <figure className={`${subjectColors[subject]} rounded-lg flex items-center justify-center`}>
+    <div className="w-full md:w-full flex flex-col flex-wrap justify-center font-rubik font-medium text-center">
+      <header className="w-1/2 fixed top-[0.5rem] left-0 flex flex-row ml-[var(--spacing-300) mt-4 px-[var(--spacing-300)]">
+        <figure
+          className={`${subjectColors[subject]} rounded-lg flex items-center justify-center`}
+        >
           <img
             src={currentQuiz?.icon}
             alt={`${subject} icon`}
-            className="w-[2.5rem] h-[2.5rem]"
+            className="w-full h-[2.5rem]"
           />
         </figure>
-        <section className="font-rubik font-medium ml-4  text-[1.125rem] leading-[1.125rem] py-4">
-          <p className="text-[var(--blue-900)] dark:text-[var(--standard-white)]">{currentQuiz?.title}</p>
+        <section className="font-rubik font-medium ml-4 text-[1.125rem] leading-[1.125rem] py-4">
+          <p className="text-[var(--blue-900)] dark:text-[var(--standard-white)]">
+            {currentQuiz?.title}
+          </p>
         </section>
       </header>
-      <main className="flex flex-col mx-[var(--spacing-300)]">
-        <p className="text-[0.875rem] leading-[1.313rem] text-[var(--grey-500)] font-rubik italic text-left mt-8">{`Question ${state.currentQuestion + 1} of ${currentQuiz?.questions.length}`}</p>
+      <main className="flex flex-col lg:flex-row justify-start mt-0 md:justify-start lg:justify-center mx-[var(--spacing-300) lg:gap-[var(--spacing-1600)]">
         <section>
-          <p className="text-[1.25rem] leading-[1.5rem] mt-4 dark:text-[var(--standard-white)]">
+          <p className="text-[0.875rem] leading-[1.313rem] text-[var(--grey-500)] font-rubik italic text-left">{`Question ${state.currentQuestion + 1} of ${currentQuiz?.questions.length}`}</p>
+          <p className="text-[1.25rem] leading-[1.5rem] text-left mt-4 dark:text-[var(--standard-white)]">
             {currentQuestionData?.question}
           </p>
-          <span className="bg-[var(--standard-white)] rounded-lg">
-            <progress min={0} max={100} value={state.progress} />
-          </span>
+          <div className="w-full mt-4 mb-[2.5rem] md:my-[2.5rem] lg:mt-[11.5rem] h-4 bg-[var(--standard-white)] rounded-lg mt-4">
+            <div
+              className="bg-[var(--purple-600)] h-full rounded-lg"
+              style={{ width: `${state.progress}%` }}
+            ></div>
+          </div>
         </section>
         <section>
           <ul className="w-full ">
@@ -139,18 +146,20 @@ const Quiz = () => {
               return (
                 <li
                   key={index}
-                  className={`${getOptionClass()} w-auto text-[1.125rem] md:text-[1.75rem] text-[var(--blue-900)] bg-[var(--standard-white)] dark:text-[var(--standard-white)] dark:bg-[var(--blue-850)] py-4 px-4 mt-[var(--spacing-200)] rounded-lg flex items-center md:rounded-2xl cursor-pointer`}
+                  className={`${getOptionClass()} w-full lg:w-[35.25rem] text-[1.125rem] leading-[1.125rem] md:text-[1.75rem] md:leading-[1.75rem] text-[var(--blue-900)] bg-[var(--standard-white)] dark:text-[var(--standard-white)] dark:bg-[var(--blue-850)] py-4 px-4 mt-[var(--spacing-200)] rounded-lg flex items-center md:rounded-2xl cursor-pointer`}
                   onClick={() => {
                     if (!state.isSubmitted)
-                      dispatch({ type: "SELECT_ANSWER", payload: option});
+                      dispatch({ type: "SELECT_ANSWER", payload: option });
                   }}
                 >
                   <span
-                    className={`w-[3.5rem] h-[3.5rem] ${getLetterClass()} rounded-lg flex items-center justify-center`}
+                    className={`w-[2.5rem] h-[2.5rem] md:w-[3.5rem] md:h-[3.5rem] lg:w-[3.5rem] lg:h-[3.5rem] ${getLetterClass()} rounded-lg flex items-center justify-center`}
                   >
                     {["A ", "B ", "C ", "D "][index]}
                   </span>
-                  <p className="ml-8 text-[var(--blue-900)] dark:text-[var(--standard-white)]">{option}</p>
+                  <p className="ml-4 text-[var(--blue-900)] dark:text-[var(--standard-white)]">
+                    {option}
+                  </p>
 
                   {isCorrect && state.isSubmitted && (
                     <img src={checkIcon} alt="check icon" className="ml-4" />
@@ -171,7 +180,7 @@ const Quiz = () => {
         </section>
 
         {state.showError && (
-          <footer className="flex items-center mt-4 text-[var(--red-500)]">
+          <footer className="w-auto lg:absolute lg:bottom-[13rem] lg:left-[45rem] flex items-center lg:justify-center md:justify-start mt-4 lg:mt-8 lg:ml-0 text-[var(--red-500)]">
             <img src={errorIcon} alt="Error icon" />
             <p className="ml-4">Please select an answer</p>
           </footer>
