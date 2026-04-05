@@ -172,19 +172,18 @@ const Quiz = () => {
             })}
           </ul>
           <button
-            className="w-full p-4 mt-4 rounded-lg text-[1.125rem] md:text-[1.75rem] text-[var(--standard-white)] bg-[var(--purple-600)]"
+            className="w-full p-4 mt-4 lg:my-8 rounded-lg text-[1.125rem] md:text-[1.75rem] text-[var(--standard-white)] bg-[var(--purple-600)]"
             onClick={handleButtonClick}
           >
             {state.isSubmitted ? "Next Question" : "Submit Answer"}
           </button>
+          {state.showError && (
+            <footer className="w-auto flex items-center lg:justify-start xl:justify-start md:justify-start mt-4 lg:mt-0 lg:ml-0 text-[var(--red-500)]">
+              <img src={errorIcon} alt="Error icon" />
+              <p className="ml-4">Please select an answer</p>
+            </footer>
+          )}
         </section>
-
-        {state.showError && (
-          <footer className="w-auto lg:absolute lg:bottom-[13rem] lg:left-[45rem] flex items-center lg:justify-center md:justify-start mt-4 lg:mt-8 lg:ml-0 text-[var(--red-500)]">
-            <img src={errorIcon} alt="Error icon" />
-            <p className="ml-4">Please select an answer</p>
-          </footer>
-        )}
       </main>
     </div>
   );
